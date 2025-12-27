@@ -1,0 +1,62 @@
+<html>
+  <body>
+    <div id="app"></div>
+    <!-- react is the core react library, -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- react-dom provides DOM-specific methods that enable us to use react with the DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel compiles JSX code into regular JavaScript that browsers can understand -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+
+      // use either of these:
+
+      // 1. a template literal
+      // since props is an object, we can destructure it to get specific prop values
+      function Header({ title }) {
+        console.log(title); // "React"
+        // curly braces as a way to enter javascript land while we are in jsx land
+        return <h1>{title}</h1>;
+      }
+
+      // 2. an object property with dot notation
+      // function Header(props) {
+      //   console.log(props.title);
+      //   return <h1>{title}</h1>;
+      // }
+
+      // 3. returned value of a function
+      // function createTitle(title) {
+      //   if (title) {
+      //     return title;
+      //   } else {
+      //     return 'Default title';
+      //   }
+      // }
+      // function Header({ title }) {
+      //   return <h1>{createTitle(title)}</h1>;
+      // }
+
+      // 4. ternary operator
+      // function Header({ title }) {
+      //   return <h1>{title ? title : 'Default title'}</h1>;
+      // }
+
+      function HomePage() {
+        return (
+          <div>
+            {/* pass a custom prop to the component */}
+            <Header title="React"/>
+            <Header title="A new title"/>
+          </div>
+        )
+      }
+
+      // target a specific DOM element and create a root to display our react component in
+      const root = ReactDOM.createRoot(app);
+      // render our react component to the DOM
+      root.render(<HomePage />); // to use react components, pass it with angle brackets
+    </script>
+  </body>
+</html>

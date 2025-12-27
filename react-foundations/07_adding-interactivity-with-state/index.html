@@ -17,9 +17,16 @@
       function HomePage() {
         const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
 
+        // react has a set of functions called hooks
+        // hooks allo us to add additional logic such as state to our components
+
+        // first element is the current state value
+        // second element is a function that lets us update the state value
+        // argument passed to useState is the initial state value
+        const [likes, setLikes] = React.useState(0);
         function handleClick() {
-          console.log("increment like count")
-        }
+          setLikes(likes + 1);
+        };
 
         return (
           <div>
@@ -31,7 +38,8 @@
             </ul>
             {/* in react, event names are camel cased */}
             {/* onClick event is one of many events we can use to respond to user interaction */}
-            <button onClick={handleClick}>Like</button>
+            {/* use the state variable inside our component */}
+            <button onClick={handleClick}>Likes ({likes})</button>
           </div>
         );
       }

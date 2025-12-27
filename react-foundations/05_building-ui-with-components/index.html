@@ -16,10 +16,20 @@
         return <h1>Develop. Preview. Ship.</h1>;
       }
 
+      // example of nesting components
+      function HomePage() {
+        return (
+          <div>
+            {/* nesting the header component */}
+            <Header />
+          </div>
+        )
+      }
+
       // target a specific DOM element and create a root to display our react component in
       const root = ReactDOM.createRoot(app);
       // render our react component to the DOM
-      root.render(<Header />); // to use react components, pass it with angle brackets
+      root.render(<HomePage />); // to use react components, pass it with angle brackets
     </script>
   </body>
 </html>

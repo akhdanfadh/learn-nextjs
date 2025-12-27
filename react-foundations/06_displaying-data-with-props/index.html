@@ -44,13 +44,20 @@
       // }
 
       function HomePage() {
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
         return (
           <div>
             {/* pass a custom prop to the component */}
-            <Header title="React"/>
-            <Header title="A new title"/>
+            <Header title="Develop. Preview. Ship."/>
+            <ul>
+              {/* iterate through lists with arrow functions and map */}
+              {names.map((name) => (
+                // react needs something to uniquely identify each list item, so we use the name as a key
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
           </div>
-        )
+        );
       }
 
       // target a specific DOM element and create a root to display our react component in

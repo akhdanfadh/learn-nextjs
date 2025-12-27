@@ -1,0 +1,45 @@
+<html>
+  <body>
+    <div id="app"></div>
+    <!-- react is the core react library, -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- react-dom provides DOM-specific methods that enable us to use react with the DOM -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- babel compiles JSX code into regular JavaScript that browsers can understand -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+
+      function Header(props) {
+        return <h1>{props.title}</h1>;
+      }
+
+      function HomePage() {
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+        function handleClick() {
+          console.log("increment like count")
+        }
+
+        return (
+          <div>
+            <Header title="Develop. Preview. Ship."/>
+            <ul>
+              {names.map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+            </ul>
+            {/* in react, event names are camel cased */}
+            {/* onClick event is one of many events we can use to respond to user interaction */}
+            <button onClick={handleClick}>Like</button>
+          </div>
+        );
+      }
+
+      // target a specific DOM element and create a root to display our react component in
+      const root = ReactDOM.createRoot(app);
+      // render our react component to the DOM
+      root.render(<HomePage />); // to use react components, pass it with angle brackets
+    </script>
+  </body>
+</html>
